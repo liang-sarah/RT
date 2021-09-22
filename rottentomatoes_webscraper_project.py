@@ -3,7 +3,7 @@ from urllib2 import urlopen
 import re
 import copy
 
-#list of 206 Netflix shows on Rotton Tomatoes to scrape
+#list of 206 Netflix shows on Rotten Tomatoes to scrape
 
 url='https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/'
 page=urlopen(url)       #opening url
