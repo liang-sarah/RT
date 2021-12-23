@@ -27,7 +27,7 @@ class rotten_tomatoes:
         
 
 
-    def html_scraping(self):
+    def html_refine(self):
         #refining the div classes, searching for titles, years, ratings
         containers = []
         for raw_container in self.html_container():
@@ -49,11 +49,11 @@ class rotten_tomatoes:
 
 
 
-    def html_fine_scraping(self):
+    def scrape(self):
         #further refining, extracting lines that have a number or letter
         movie_stats = []
         final_container = []
-        for container in self.html_scraping():
+        for container in self.html_refine():
             for line in container:
                 for char in line:
                     if char.isalnum() == True:
@@ -73,8 +73,8 @@ class rotten_tomatoes:
 
 
 
-    def sorting(self):
-        final_movie_stats = self.html_fine_scraping()
+    def dataLists(self):
+        final_movie_stats = self.scrape()
         titles = []
         years = []
         ratings = []
@@ -109,11 +109,8 @@ class rotten_tomatoes:
 
 
 ''' Example to use/call Object, insert Rotten Tomatoes url into rotten_tomatoes parameter:
-RT = rotten_tomatoes('https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/')
-RT.html_container()
-RT.html_scraping()
-RT.html_fine_scraping()
-print(RT.sorting())'''
+RT = rotten_tomatoes('https://editorial.rottentomatoes.com/guide/best-christmas-movies/')
+print(RT.dataLists())'''
 
 
 #to import into Excel, separating columns with separater |
